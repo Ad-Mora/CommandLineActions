@@ -3,9 +3,9 @@ package SystemActions;
 import Core.ExitCode;
 
 /**
- * Created by AdrianM on 2/5/15.
+ * Created by AdrianM on 2/7/15.
  */
-public class Help implements SystemAction {
+public class Quit implements SystemAction {
 
     public String getInfoMessage() {
         // TODO
@@ -13,17 +13,16 @@ public class Help implements SystemAction {
     }
 
     public String getInvalidFormatMessage() {
-        // TODO
         return "";
     }
 
     public ExitCode processCommandArgs(String commandArgs) {
-        // TODO
-        return ExitCode.CLEAR;
+        return ExitCode.QUIT;
     }
 
-    public void execute() {
-        // TODO
+    public void execute() {}
 
-    }
+
+
+
 }
