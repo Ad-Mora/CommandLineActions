@@ -17,7 +17,7 @@ public class Commands {
         Map<String, Action> actionMap = new HashMap<String, Action>();
 
         // List all command-action pairs
-        String browseCommand = "browse";
+        String browseCommand = "go to";
         Action browseAction = new BrowseWebMain();
 
         String helpCommand = "help";

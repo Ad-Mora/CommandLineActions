@@ -29,7 +29,14 @@ public class CommandUtils {
         String mainCommand = getMainCommandFromCommand(fullCommand);
         int argsBeginIndex = mainCommand.length() + 1;
 
-        return fullCommand.substring(argsBeginIndex);
-    }
+        String commandArgs;
 
+        if (argsBeginIndex > fullCommand.length()) {
+            commandArgs = "";
+        } else {
+            commandArgs = fullCommand.substring(argsBeginIndex);
+        }
+
+        return commandArgs;
+    }
 }

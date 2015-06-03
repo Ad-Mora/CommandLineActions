@@ -19,11 +19,12 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        String welcomeText = "Welcome to lazy mode. Type 'help' for help. Type 'quit' to quit.";
+        String welcomeText = "Welcome to CLA. Type 'help' for help. Type 'quit' to quit.";
         String invalidCommandMessage = "Invalid command. Type 'help' for help.";
 
         while (true) {
 
+            System.out.println();
             System.out.println(welcomeText);
 
             String fullCommand = in.nextLine();
@@ -35,7 +36,7 @@ public class Main {
                 Action nextAction = Commands.getCommandsToActionsMap().get(mainCommand);
                 ExitCode code = nextAction.processCommandArgs(commandArgs);
 
-                if (code.equals(ExitCode.INVLAID_FORMAT)) {
+                if (code.equals(ExitCode.INVALID_FORMAT)) {
                     System.out.println(nextAction.getInvalidFormatMessage());
                 } else if (code.equals(ExitCode.QUIT)) {
                     break;

@@ -22,8 +22,8 @@ public class BrowseWebUtils {
 
     public static String getURLFromCommandArgs(String commandArgs) {
 
-        int firstQuoteIndex = commandArgs.indexOf("\""); //should be 0
-        int lastQuoteIndex = commandArgs.indexOf("\"");
+        int firstQuoteIndex = commandArgs.indexOf("\""); // should be 0
+        int lastQuoteIndex = commandArgs.lastIndexOf("\"");
 
         String url = commandArgs.substring(firstQuoteIndex + 1, lastQuoteIndex);
 

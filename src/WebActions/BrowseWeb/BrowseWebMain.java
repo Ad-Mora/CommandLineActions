@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -44,7 +43,7 @@ public class BrowseWebMain implements WebAction {
     public ExitCode processCommandArgs(String commandArgs) {
 
         if (!BrowseWebUtils.isValidURLFormat(commandArgs)) {
-            return ExitCode.INVLAID_FORMAT;
+            return ExitCode.INVALID_FORMAT;
         }
 
         this.url = BrowseWebUtils.getURLFromCommandArgs(commandArgs);
