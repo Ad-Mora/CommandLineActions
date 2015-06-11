@@ -9,11 +9,10 @@ public interface Action {
 
     public String getInvalidFormatMessage();
 
-    public ExitCode processCommandArgs(String commandArgs);
-
-    public void execute();
-
-
-
+    public ExitCode execute(String command);
 
 }
+
+
+
+

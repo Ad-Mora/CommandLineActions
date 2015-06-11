@@ -8,24 +8,12 @@ import java.util.List;
 public class BrowseWebUtils {
 
     public static boolean isValidURLFormat(String commandArgs) {
-
-        if (commandArgs.indexOf("\"") != 0) {
-            return false;
-        }
-
-        if (commandArgs.lastIndexOf("\"") == 0) {
-            return false;
-        }
-
         return true;
    }
 
-    public static String getURLFromCommandArgs(String commandArgs) {
+    public static String getURLFromCommand(String command) {
 
-        int firstQuoteIndex = commandArgs.indexOf("\""); // should be 0
-        int lastQuoteIndex = commandArgs.lastIndexOf("\"");
-
-        String url = commandArgs.substring(firstQuoteIndex + 1, lastQuoteIndex);
+        command.split(" ");
 
         return url;
     }

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
+
 /**
  * Created by AdrianM on 2/3/15.
  */
@@ -14,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 
+//        This is hardcoded; fix this
         System.setProperty("webdrive.chrome.drive",
                 "/Users/AdrianM/Documents/CodingProjects/JavaProjects/CommandLineActions/chromedriver");
 
@@ -27,22 +29,19 @@ public class Main {
             System.out.println();
             System.out.println(welcomeText);
 
-            String fullCommand = in.nextLine();
-            String mainCommand = CommandUtils.getMainCommandFromCommand(fullCommand);
-            String commandArgs = Utils.CommandUtils.getArgsFromFullCommand(fullCommand);
+            String command = in.nextLine();
+            String actionName = CommandUtils.getActionNameFromCommand(command);
+            Action nextAction = Commands.getAction(actionName);
 
-            if (mainCommand != null) {
+            if (nextAction != null) {
 
-                Action nextAction = Commands.getCommandsToActionsMap().get(mainCommand);
-                ExitCode code = nextAction.processCommandArgs(commandArgs);
+                ExitCode code = nextAction.execute(command);
 
                 if (code.equals(ExitCode.INVALID_FORMAT)) {
                     System.out.println(nextAction.getInvalidFormatMessage());
                 } else if (code.equals(ExitCode.QUIT)) {
                     break;
                 }
-
-                nextAction.execute();
 
             } else {
                 System.out.println(invalidCommandMessage);

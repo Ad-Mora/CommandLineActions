@@ -14,15 +14,18 @@ import java.util.Map;
  */
 public class BrowseWebMain implements WebAction {
 
-    private boolean maximize = true;
-    private boolean bringToFront = true;
-    private String url;
+    private static final String MAIN_COMMAND = "go to";
 
     private static final String MAXIMIZE_FLAG = "--maximize";
     private static final String BRING_TO_FRONT_FLAG = "--front";
-
     private static final String NO_MAXIMIZE_FLAG = "--no-maximize";
     private static final String NO_BRING_TO_FRONT_FLAG = "--no-front";
+
+    private String commandArgs;
+    private String url;
+
+    private boolean maximize = true;
+    private boolean bringToFront = true;
 
     public BrowseWebMain() {
     }
@@ -48,7 +51,6 @@ public class BrowseWebMain implements WebAction {
 
         this.url = BrowseWebUtils.getURLFromCommandArgs(commandArgs);
 
-
         String[] flags = BrowseWebUtils.getFlagsFromCommandArgs(commandArgs);
 
         for (String flag : flags) {
@@ -67,9 +69,16 @@ public class BrowseWebMain implements WebAction {
         return ExitCode.CLEAR;
     }
 
-    public void execute() {
+    public ExitCode execute(String command) {
+
+
+        ExitCode code = processCommandArgs(command);
+        if (code == ExitCode.INVALID_FORMAT) {
+            return code;
+        }
 
         WebDriver driver = new ChromeDriver();
+
         if (this.maximize) {
             ChromeWindowUtils.maximizeChromeWindow(driver);
         }

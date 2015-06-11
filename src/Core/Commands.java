@@ -36,4 +36,10 @@ public class Commands {
 
         return actionMap;
     }
+
+    public static Action getAction(String actionName) {
+        return getCommandsToActionsMap().get(actionName);
+    }
+
+
 }

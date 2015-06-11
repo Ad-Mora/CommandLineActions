@@ -7,9 +7,9 @@ public class Test {
 
     public static void main(String[] args) {
 
-        String commandArgs = "\"test\"";
-        String out = BrowseWebUtils.getURLFromCommandArgs(commandArgs);
-        System.out.println(out);
+
+
+        System.out.println("test");
 
     }
 }

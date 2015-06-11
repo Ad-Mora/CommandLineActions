@@ -1,7 +1,6 @@
 package Utils;
 
 import Core.Commands;
-
 import java.util.Set;
 
 /**
@@ -9,7 +8,7 @@ import java.util.Set;
  */
 public class CommandUtils {
 
-    public static String getMainCommandFromCommand(String givenCommand) {
+    public static String getActionNameFromCommand(String givenCommand) {
 
         Set<String> commandList = Commands.getCommandsToActionsMap().keySet();
         String mainCommand = null;
@@ -24,19 +23,10 @@ public class CommandUtils {
         return mainCommand;
     }
 
-    public static String getArgsFromFullCommand(String fullCommand) {
+    public static String removeExtraSpaces(String command) {
 
-        String mainCommand = getMainCommandFromCommand(fullCommand);
-        int argsBeginIndex = mainCommand.length() + 1;
-
-        String commandArgs;
-
-        if (argsBeginIndex > fullCommand.length()) {
-            commandArgs = "";
-        } else {
-            commandArgs = fullCommand.substring(argsBeginIndex);
-        }
-
-        return commandArgs;
+        String cleanString = command.replaceAll("\\s+", " ");
+        return cleanString.trim();
     }
+
 }
