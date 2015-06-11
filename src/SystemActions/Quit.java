@@ -5,12 +5,7 @@ import Core.ExitCode;
 /**
  * Created by AdrianM on 2/7/15.
  */
-public class Quit implements SystemAction {
-
-    public String getInfoMessage() {
-        // TODO
-        return "";
-    }
+public class Quit {
 
     public String getInvalidFormatMessage() {
         return "";

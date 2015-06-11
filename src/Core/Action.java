@@ -5,10 +5,6 @@ package Core;
  */
 public interface Action {
 
-    public String getInfoMessage();
-
-    public String getInvalidFormatMessage();
-
     public ExitCode execute(String command);
 
 }

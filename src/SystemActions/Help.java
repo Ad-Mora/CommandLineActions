@@ -5,7 +5,7 @@ import Core.ExitCode;
 /**
  * Created by AdrianM on 2/5/15.
  */
-public class Help implements SystemAction {
+public class Help {
 
     public String getInfoMessage() {
         // TODO
