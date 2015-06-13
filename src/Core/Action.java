@@ -7,6 +7,11 @@ public interface Action {
 
     public ExitCode execute(String command);
 
+    public String getInfo();
+
+    public String getActionName();
+
+
 }
 
 

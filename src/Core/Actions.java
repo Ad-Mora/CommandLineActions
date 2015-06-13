@@ -10,7 +10,7 @@ import SystemActions.Quit;
 /**
  * Created by AdrianM on 2/4/15.
  */
-public class Commands {
+public class Actions {
 
     public static Map<String, Action> getCommandsToActionsMap() {
 
@@ -40,6 +40,4 @@ public class Commands {
     public static Action getAction(String actionName) {
         return getCommandsToActionsMap().get(actionName);
     }
-
-
 }

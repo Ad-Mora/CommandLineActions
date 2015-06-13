@@ -10,10 +10,6 @@ import java.util.Map;
  */
 public interface WebAction extends Action {
 
-    public Map<String, String> getFlagsToHelpDescriptionMap();
-
-    public String getInvalidFormatMessage();
-
     public String getInfoMessage();
 
 

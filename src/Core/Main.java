@@ -20,33 +20,40 @@ public class Main {
                 "/Users/AdrianM/Documents/CodingProjects/JavaProjects/CommandLineActions/chromedriver");
 
         Scanner in = new Scanner(System.in);
-
         String welcomeText = "Welcome to CLA. Type 'help' for help. Type 'quit' to quit.";
-        String invalidCommandMessage = "Invalid command. Type 'help' for help.";
 
         while (true) {
 
             System.out.println();
             System.out.println(welcomeText);
 
-            String command = in.nextLine();
-            String actionName = CommandUtils.getActionNameFromCommand(command);
-            Action nextAction = Commands.getAction(actionName);
+            Command command = new Command(in.nextLine());
+            String actionName = command.getActionName();
+            Action nextAction = Actions.getAction(actionName);
 
-            if (nextAction != null) {
-
-                ExitCode code = nextAction.execute(command);
-
-                if (code.equals(ExitCode.INVALID_FORMAT)) {
-                    System.out.println(nextAction.getInvalidFormatMessage());
-                } else if (code.equals(ExitCode.QUIT)) {
-                    break;
-                }
-
+            if (command.isValid()) {
+                nextAction.execute(command.toString());
+            } else if command.quit() {
+                break;
             } else {
-                System.out.println(invalidCommandMessage);
+                System.out.println(command.getInvalidCommandMsg());
             }
-        }
 
+//            if (nextAction != null) {
+//
+//                if (nextAction.commandIsValid(command)) {
+//
+//                    ExitCode code = nextAction.execute(command);
+//                    if (code.equals(ExitCode.QUIT)) {
+//                        break;
+//                    }
+//                } else {
+//                    System.out.println(Commands.invalidCommandMsg(actionName));
+//                }
+//
+//            } else {
+//                System.out.println(Commands.invalidCommandMessage());
+//            }
+        }
     }
 }

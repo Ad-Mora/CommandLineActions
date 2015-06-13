@@ -1,11 +1,12 @@
 package SystemActions;
 
+import Core.Action;
 import Core.ExitCode;
 
 /**
  * Created by AdrianM on 2/5/15.
  */
-public class Help {
+public class Help extends Action {
 
     public String getInfoMessage() {
         // TODO

@@ -1,6 +1,6 @@
 package Utils;
 
-import Core.Commands;
+import Core.Actions;
 import java.util.Set;
 
 /**
@@ -10,7 +10,7 @@ public class CommandUtils {
 
     public static String getActionNameFromCommand(String givenCommand) {
 
-        Set<String> commandList = Commands.getCommandsToActionsMap().keySet();
+        Set<String> commandList = Actions.getCommandsToActionsMap().keySet();
         String mainCommand = null;
 
         for (String officialCommand : commandList) {

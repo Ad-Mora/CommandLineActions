@@ -1,11 +1,12 @@
 package SystemActions;
 
+import Core.Action;
 import Core.ExitCode;
 
 /**
  * Created by AdrianM on 2/5/15.
  */
-public class Config {
+public class Config implements Action {
 
     public String getInfoMessage() {
         // TODO
@@ -17,12 +18,7 @@ public class Config {
         return "";
     }
 
-    public ExitCode processCommandArgs(String commandArgs) {
-        // TODO
-        return ExitCode.CLEAR;
-    }
-
-    public void execute() {
+    public ExitCode execute(String command) {
         // TODO
     }
 }

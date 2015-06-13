@@ -1,23 +1,14 @@
 package SystemActions;
 
+import Core.Action;
 import Core.ExitCode;
 
 /**
  * Created by AdrianM on 2/7/15.
  */
-public class Quit {
+public class Quit implements Action {
 
-    public String getInvalidFormatMessage() {
-        return "";
-    }
-
-    public ExitCode processCommandArgs(String commandArgs) {
+    public ExitCode execute(String command) {
         return ExitCode.QUIT;
     }
-
-    public void execute() {}
-
-
-
-
 }
