@@ -1,30 +1,35 @@
 package SystemActions;
 
 import Core.Action;
-import Core.ExitCode;
+import java.util.Map;
 
 /**
  * Created by AdrianM on 2/5/15.
  */
-public class Help extends Action {
+public class Help implements Action {
 
-    public String getInfoMessage() {
-        // TODO
-        return "";
+    @Override
+    public void execute(String command) {
+
     }
 
-    public String getInvalidFormatMessage() {
-        // TODO
-        return "";
+    @Override
+    public String getInfo() {
+        return null;
     }
 
-    public ExitCode processCommandArgs(String commandArgs) {
-        // TODO
-        return ExitCode.CLEAR;
+    @Override
+    public String getActionName() {
+        return null;
     }
 
-    public void execute() {
-        // TODO
+    @Override
+    public Map<String, String> flagsToHelp() {
+        return null;
+    }
 
+    @Override
+    public boolean isValidCommand(String command) {
+        return false;
     }
 }

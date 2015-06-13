@@ -1,7 +1,6 @@
 package WebActions.BrowseWeb;
 
-import WebActions.WebAction;
-import Core.ExitCode;
+import Core.Action;
 import Utils.ChromeWindowUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +11,7 @@ import java.util.Map;
 /**
  * Created by AdrianM on 2/5/15.
  */
-public class BrowseWebMain implements WebAction {
+public class BrowseWebMain implements Action {
 
     private static final String MAIN_COMMAND = "go to";
 
@@ -27,29 +26,10 @@ public class BrowseWebMain implements WebAction {
     private boolean maximize = true;
     private boolean bringToFront = true;
 
-    public BrowseWebMain() {
-    }
 
-    public String getInfoMessage() {
-        return null;
-    }
+    public void processCommandArgs(String commandArgs) {
 
-    public String getInvalidFormatMessage() {
-        return null;
-    }
-
-    public Map<String, String> getFlagsToHelpDescriptionMap() {
-        // TODO
-        return new HashMap<String, String>();
-    }
-
-    public ExitCode processCommandArgs(String commandArgs) {
-
-        if (!BrowseWebUtils.isValidURLFormat(commandArgs)) {
-            return ExitCode.INVALID_FORMAT;
-        }
-
-        this.url = BrowseWebUtils.getURLFromCommandArgs(commandArgs);
+//        this.url = BrowseWebUtils.getURLFromCommandArgs(commandArgs);
 
         String[] flags = BrowseWebUtils.getFlagsFromCommandArgs(commandArgs);
 
@@ -65,18 +45,11 @@ public class BrowseWebMain implements WebAction {
                 this.bringToFront = false;
             }
         }
-
-        return ExitCode.CLEAR;
     }
 
-    public ExitCode execute(String command) {
+    public void execute(String command) {
 
-
-        ExitCode code = processCommandArgs(command);
-        if (code == ExitCode.INVALID_FORMAT) {
-            return code;
-        }
-
+        processCommandArgs(command);
         WebDriver driver = new ChromeDriver();
 
         if (this.maximize) {
@@ -88,6 +61,26 @@ public class BrowseWebMain implements WebAction {
 
         Utils.ChromeNavigationUtils.goToURL(driver, this.url);
 
+    }
+
+    @Override
+    public String getInfo() {
+        return null;
+    }
+
+    @Override
+    public String getActionName() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> flagsToHelp() {
+        return null;
+    }
+
+    @Override
+    public boolean isValidCommand(String command) {
+        return false;
     }
 
 }

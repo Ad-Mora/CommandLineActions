@@ -1,24 +1,35 @@
 package SystemActions;
 
 import Core.Action;
-import Core.ExitCode;
+import java.util.Map;
 
 /**
  * Created by AdrianM on 2/5/15.
  */
 public class Config implements Action {
 
-    public String getInfoMessage() {
+    @Override
+    public void execute(String command) {
         // TODO
-        return "";
     }
 
-    public String getInvalidFormatMessage() {
-        // TODO
-        return "";
+    @Override
+    public String getInfo() {
+        return null;
     }
 
-    public ExitCode execute(String command) {
-        // TODO
+    @Override
+    public String getActionName() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> flagsToHelp() {
+        return null;
+    }
+
+    @Override
+    public boolean isValidCommand(String command) {
+        return false;
     }
 }

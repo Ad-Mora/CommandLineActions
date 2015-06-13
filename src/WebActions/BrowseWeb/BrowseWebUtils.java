@@ -12,10 +12,7 @@ public class BrowseWebUtils {
    }
 
     public static String getURLFromCommand(String command) {
-
-        command.split(" ");
-
-        return url;
+        return null;
     }
 
     public static String[] getFlagsFromCommandArgs(String commandArgs) {
@@ -25,8 +22,6 @@ public class BrowseWebUtils {
         String[] flagsArr = flags.split(" ");
 
         return flagsArr;
-
-
     }
 
 
