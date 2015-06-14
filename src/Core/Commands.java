@@ -17,23 +17,19 @@ public class Commands {
         return "";
     }
 
-    public static boolean isValidCommand(Action action, String command) {
+    public static boolean isValidCommand(String command, Action action) {
 
-        if (!getActionName(command).equals("")) {
-            return action.isValidCommand(command);
-        }
-        return false;
+        String actionName = action.getActionName();
+        return !actionName.equals("") && action.isValidCommand(command);
     }
 
-    public static String getInvalidCommandMsg(String command) {
+    public static String getInvalidCommandMsg(String command, String actionName) {
 
-        String actionName = getActionName(command);
         if (!actionName.equals("")) {
             return "Invalid command. Type 'help " + actionName + "' for help with this module. Type 'quit' to quit.";
         }
         return "Invalid command. Type 'help' for help. Type 'quit' to quit.";
     }
-
 
     public static String removeExtraSpaces(String command) {
 

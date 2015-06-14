@@ -30,12 +30,12 @@ public class Main {
             String actionName = Commands.getActionName(command);
             Action nextAction = Actions.getAction(actionName);
 
-            if (Commands.isValidCommand(nextAction, command)) {
+            if (Commands.isValidCommand(command, nextAction)) {
                 nextAction.execute(command);
             } else if (command.equals(quitCommand)) {
                 break;
             } else {
-                System.out.println(Commands.getInvalidCommandMsg(command));
+                System.out.println(Commands.getInvalidCommandMsg(command, actionName));
             }
         }
 
