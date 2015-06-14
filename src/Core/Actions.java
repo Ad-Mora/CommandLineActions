@@ -1,7 +1,6 @@
 package Core;
 
 import java.util.*;
-
 import WebActions.BrowseWeb.BrowseWebMain;
 import SystemActions.Config;
 import SystemActions.Help;

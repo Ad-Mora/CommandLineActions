@@ -14,17 +14,19 @@ public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 
 //        This is hardcoded; fix this
-        System.setProperty("webdrive.chrome.drive",
-                "/Users/AdrianM/Documents/CodingProjects/JavaProjects/CommandLineActions/chromedriver");
+//        System.setProperty("webdrive.chrome.drive",
+//                "/Users/AdrianM/Documents/CodingProjects/JavaProjects/CommandLineActions/chromedriver");
 
+        System.setProperty("webdrive.chrome.drive", "chromedriver");
         Scanner in = new Scanner(System.in);
-        String welcomeText = "Welcome to CLA. Type 'help' for help. Type 'quit' to quit.";
         String quitCommand = "quit";
+
+        System.out.println("Welcome to CLA. Type 'help' for help. Type '" + quitCommand + "' to quit");
+        System.out.println();
 
         while (true) {
 
-            System.out.println();
-            System.out.println(welcomeText);
+            System.out.println("Enter a command: ");
 
             String command = in.nextLine();
             String actionName = Commands.getActionName(command);
